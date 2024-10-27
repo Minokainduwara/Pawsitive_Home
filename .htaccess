@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Set the base directory for the project.
+RewriteBase /Pawsitive_Home/
+
+# If the request is for a real file or directory, don't rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite all other requests to index.php with the requested URL as a parameter
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
